@@ -6,9 +6,6 @@ A new Flutter application.
 <p align="center">
 	<img src="https://github.com/Yoyun/messenger/blob/master/screenshots/screenshots_1.png" alt="Sample"  width="250" >
 	<img src="https://github.com/Yoyun/messenger/blob/master/screenshots/screenshots_2.png" alt="Sample"  width="250" >
-	<p align="center">
-		<em>图片示例2</em>
-	</p>
 </p>
 
 
