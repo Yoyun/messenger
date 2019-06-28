@@ -16,7 +16,6 @@ class _MessagePageState extends State<MessagePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getContacts().then((value) => setState(() => contacts = value));
   }

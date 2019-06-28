@@ -8,21 +8,26 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currPageIndex = 0;
-  List<Widget> pages = [
-    MessagePage(),
-    Center(
-        child: Icon(
-      IconData(0xe604, fontFamily: 'Messenger'),
-      size: 48,
-    )),
-    Center(child: Icon(IconData(0xe605, fontFamily: 'Messenger'), size: 48)),
-  ];
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
-        body: pages[currPageIndex],
+        body: IndexedStack(
+          children: <Widget>[
+            MessagePage(),
+            Center(
+                child: Icon(
+              IconData(0xe604, fontFamily: 'Messenger'),
+              size: 48,
+            )),
+            Center(
+                child: Icon(
+              IconData(0xe605, fontFamily: 'Messenger'),
+              size: 48,
+            )),
+          ],
+          index: currPageIndex,
+        ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
             color: Colors.white,
