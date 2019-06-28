@@ -22,61 +22,83 @@ class MessageHeaderWidget extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-//    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), bg1Paint);
+    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), bgPaint);
 
-    Path path = Path();
-//    canvas.drawCircle(Offset(0,size.height), 20, bg1Paint);
-//    canvas.drawCircle(Offset(0,size.height/3), 20, bg1Paint);
-    path.lineTo(0, size.height);
-    path.lineTo(0, 103);
+    var path1 = Path();
+    path1.moveTo(0, size.height);
+    path1.lineTo(
+      size.width * (-54 / 414),
+      size.height * (175 / 225),
+    );
+    path1.quadraticBezierTo(
+      size.width * (56 / 414),
+      17,
+      size.width * (96 / 414),
+      size.height * (43 / 225),
+    );
+    path1.cubicTo(
+      size.width * (170 / 414),
+      size.height * (92 / 225),
+      size.width * (200 / 414),
+      size.height * (17 / 225),
+      size.width * (282 / 414),
+      size.height * (99 / 225),
+    );
+    path1.cubicTo(
+      size.width * (303 / 414),
+      size.height * (120 / 225),
+      size.width * (389 / 414),
+      size.height * (0 / 225),
+      size.width * (423 / 414),
+      size.height * (-10 / 225),
+    );
+    path1.lineTo(size.width, size.height);
 
-//    canvas.drawCircle(Offset(size.width/5,size.height/5), 20, bg1Paint);
-//    canvas.drawCircle(Offset(size.width/5*2,size.height/5*2), 20, bg1Paint);
-//    path.cubicTo(77, 31, 96, 43, 169, 92);
-    path.quadraticBezierTo(77, 31, 96, 43);
-    path.quadraticBezierTo(96, 43, 169, 92);
+    canvas.drawPath(path1, bg1Paint);
 
-//    canvas.drawCircle(Offset(size.width/5*3,size.height/5), 20, bg1Paint);
-//    canvas.drawCircle(Offset(size.width/5*4,size.height/5*2), 20, bg1Paint);
-//    path.cubicTo(200, 17, 282, 99, 300, 120);
-//    path.cubicTo(389, 0, 480, -28, 423, -10);
+    var path2 = Path();
+    path2.moveTo(0, size.height);
+    path2.lineTo(
+      size.width * (-54 / 414),
+      size.height * (175 / 225),
+    );
+    path2.quadraticBezierTo(
+      size.width * (-13 / 414),
+      size.height * (199 / 225),
+      size.width * (53 / 414),
+      size.height * (99 / 225),
+    );
+    path2.cubicTo(
+      size.width * (120 / 414),
+      size.height * (0 / 225),
+      size.width * (84 / 414),
+      size.height * (157 / 225),
+      size.width * (221 / 414),
+      size.height * (157 / 225),
+    );
+    path2.cubicTo(
+      size.width * (241 / 414),
+      size.height * (157 / 225),
+      size.width * (312 / 414),
+      size.height * (105 / 225),
+      size.width * (361 / 414),
+      size.height * (105 / 225),
+    );
+    path2.cubicTo(
+      size.width * (416 / 414),
+      size.height * (105 / 225),
+      size.width * (392 / 414),
+      size.height * (18 / 225),
+      size.width * (423 / 414),
+      size.height * (-10 / 225),
+    );
+    path2.lineTo(size.width, size.height);
 
-//    canvas.drawCircle(Offset(size.width,size.height/3), 20, bg1Paint);
-//    canvas.drawCircle(Offset(size.width,size.height), 20, bg1Paint);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-
-    canvas.drawPath(path, bg1Paint);
-
-//    Path path = Path();
-//    path.lineTo(0, size.height);
-//    path.lineTo(0, size.height /3);
-//
-//    // 设置第一个曲线的样式
-//    var firstEndPont = Offset(size.width /3, size.height /3);
-//    var firstControlPoint = Offset(size.width/3*2, size.height/3*2);
-//
-//    // 把设置好的第一个样式添加到路径里面
-//    path.quadraticBezierTo(
-//        firstControlPoint.dx, firstControlPoint.dy, firstEndPont.dx, firstEndPont.dy);
-//
-////    // 设置第二个曲线的样式
-////    var secondConttrolPoint = Offset(size.width / 4 * 3, size.height - 70);
-////    var secondEndpoint = Offset(size.width, size.height - 40);
-////
-////    // 把第二个设置好的样式添加到路径里面
-////    path.quadraticBezierTo(
-////        secondConttrolPoint.dx, secondConttrolPoint.dy, secondEndpoint.dx, secondEndpoint.dy);
-//
-//    path.lineTo(size.width, size.height/3*2);
-//    path.lineTo(size.width, size.height);
-//
-//    canvas.drawPath(path, bg1Paint);
+    canvas.drawPath(path2, bg2Paint);
   }
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
+    return false;
   }
 }
