@@ -2,6 +2,10 @@
 
 A new Flutter application.
 
+## ScreenShots
+![image](https://github.com/Yoyun/messenger/blob/master/screenshots/screenshots_1.png)
+![image](https://github.com/Yoyun/messenger/blob/master/screenshots/screenshots_2.png)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
