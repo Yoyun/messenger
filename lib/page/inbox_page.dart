@@ -17,9 +17,18 @@ class _InboxPageState extends State<InboxPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    getMessages().then((value) => setState(() => messages = value));
+    getMessages().then((value) => setState(() {
+          value.sort((Message msg1, Message msg2) => msg2.sendTime.compareTo(msg1.sendTime));
+
+          for (var i = 1; i < value.length; i++) {
+            if (value[i].sendTime.difference(value[i - 1].sendTime).inMilliseconds.abs() < 5000) {
+              value[i - 1].isShowTime = false;
+            }
+          }
+
+          return messages = value;
+        }));
   }
 
   @override
@@ -46,16 +55,16 @@ class _InboxPageState extends State<InboxPage> {
                         ? Center(child: CircularProgressIndicator())
                         : ListView(
                             reverse: true,
-                            children: messages.reversed
+                            children: messages
                                 .map(
                                   (msg) => msg.isMine
                                       ? InboxItemRight(
                                           message: msg.message,
-                                          dateTime: msg.sendTime,
+                                          dateTime: msg.isShowTime ? msg.sendTime : null,
                                         )
                                       : InboxItemLeft(
                                           message: msg.message,
-                                          dateTime: msg.sendTime,
+                                          dateTime: msg.isShowTime ? msg.sendTime : null,
                                         ),
                                 )
                                 .toList(),

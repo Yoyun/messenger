@@ -42,7 +42,17 @@ class _ContactWidgetState extends State<ContactWidget> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 18),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4, bottom: 4),
+                        child: Text(
+                          TimelineUtil.formatByDateTime(
+                            widget.contact.lastTime,
+                            locale: 'en',
+                            dayFormat: DayFormat.Simple,
+                          ),
+                          style: TextStyle(color: Colors.black45),
+                        ),
+                      ),
                       Text(
                         widget.contact.message,
                         maxLines: 2,
@@ -61,11 +71,6 @@ class _ContactWidgetState extends State<ContactWidget> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                    Text(TimelineUtil.formatByDateTime(
-                      widget.contact.lastTime,
-                      locale: 'zh',
-                      dayFormat: DayFormat.Simple,
-                    )),
                     widget.contact.havNewMsg
                         ? Container(
                             margin: const EdgeInsets.only(top: 21),
